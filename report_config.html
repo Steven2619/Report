@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>报表</title>
+    <link href="./css/bootstrap.css" rel="stylesheet" />
+    <link href="./css/custom.css" rel="stylesheet" />
+    <link href="./css/adminlte-box.css" rel="stylesheet" />
+    <link href="./css/style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" href="./css/bootstrap-multiselect.css" />
+
+    <script src="./lib/jquery.js"></script>
+    <script src="./lib/bootstrap.js"></script>
+    <script src="./lib/bootstrap-multiselect.js"></script>
+    <script src="./lib/jquery.dataTables.js"></script>
+</head>
+<body>
+<!-- 列表显示 -->
+<div class="container" id="reportConfigList">
+    <div class="title">报表配置管理</div>
+    <button type="button" class="btn" onclick="addreport()" id="addreportbtn" >新增</button>
+      <table class="table table-striped table-bordered table-hover table-condensed" id="configListTable">
+          <thead>
+            <tr>
+              <th>表名</th>
+              <th>表别名</th>
+              <th>显示类型</th>
+              <th>默认图形</th>
+              <th>标识</th>
+              <th>操作</th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+      </table>
+
+</div>
+
+    <!-- 报表配置信息 -->
+    <div class="hide" id="addReport">
+        <div id="reportViewmodal">
+            <div class="title">报表配置信息显示</div>
+            <form class="form-horizontal" id="reportConfigform">
+                <div class="form-group">
+                    <label class=" col-sm-1 control-label"><span>*&nbsp;</span>报表名:</label>
+                    <div class="col-sm-4 ">
+                        <input type="text" class='form-control' id='reportName' name="reportName" maxlength="255" required="required" />
+                        <span class="help-block"></span>
+                    </div>
+                    <label class=" col-sm-1 control-label">报表别名:</label>
+                    <div class="col-sm-4 ">
+                        <input type="text" class='form-control' id='reportAlias' name="reportAlias"  maxlength="255" />
+                          <span class="help-block"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                      <label for="selectReport" class=" col-sm-1 control-label">选择基础表:</label>
+                      <div class="col-sm-4">
+                          <select class="form-control" name="selectReport" id="selectReport">
+                          </select>
+                      </div>
+                      <label class=" col-sm-1 control-label">显示类型:</label>
+                      <div class="col-sm-4">
+                          <label class="radio-inline">
+                              <input type="radio" name="reportView" value="0" checked />图形和表格
+                          </label>
+                          <label class="radio-inline">
+                              <input type="radio" name="reportView" value="2" />仅表格
+                          </label>
+                          <label class="radio-inline">
+                              <input type="radio" name="reportView" value="1" />仅图形
+                          </label>
+                      </div>
+                  </div>
+                  <div class="form-group" style="min-height: 34px;" >
+                    <div id="ChartTypes">
+                      <label class=" col-sm-1 control-label">默认图形:</label>
+                      <div class="col-sm-4">
+                          <label class="radio-inline">
+                              <input type="radio" name="chartView" value="bar" checked />柱状图
+                          </label>
+                          <label class="radio-inline">
+                              <input type="radio" name="chartView" value="line" />折线图
+                          </label>
+                          <label class="radio-inline">
+                              <input type="radio" name="chartView" value="pie" />饼状图
+                          </label>
+                      </div>
+                    </div>
+                    <!-- </div>
+                    <div class="form-group" > -->
+                      <label class="  col-sm-1 control-label">是否导出:</label>
+                      <div class="col-sm-4">
+                          <label class="radio-inline">
+                              <input type="radio" name="export" value="1" checked />是
+                          </label>
+                          <label class="radio-inline">
+                              <input type="radio" name="export" value="0" />否
+                          </label>
+                      </div>
+                    </div>
+                    <div class="form-group exportoptdiv" >
+                      <label class=" col-sm-1 control-label" style="padding-left:0;">导出命名格式:</label>
+                      <div class="col-sm-1 Connectordiv1" style="margin-left:15px;">
+                        <input type="text" class="form-control exportopt" data-index="0" />
+                      </div>
+                      <div class="col-sm-1">
+                          <select class="form-control exportopt" data-index="1" name="exportopt1" id="exportopt1" >
+                            <option value="0" text="">请选择</option>
+                            <option value="1" text="报表名">报表名</option>
+                            <option value="2" text="类型">类型</option>
+                            <option value="3" text="周期">周期</option>
+                          </select>
+                        </div>
+                        <div class="col-sm-1 Connectordiv2">
+                          <input type="text" class="form-control exportopt" data-index="2" disabled="true" />
+                        </div>
+                        <div class="col-sm-1">
+                          <select class="form-control exportopt" name="exportopt2" id="exportopt2" data-index="3" disabled="true">
+                            <option value="0" text="">请选择</option>
+                            <option value="1" text="报表名">报表名</option>
+                            <option value="2" text="类型">类型</option>
+                            <option value="3" text="周期">周期</option>
+                          </select>
+                        </div>
+                        <div class="col-sm-1 Connectordiv3">
+                          <input type="text" class="form-control exportopt" data-index="4" disabled="true" />
+                        </div>
+                        <div class="col-sm-1">
+                          <select class="form-control exportopt" name="exportopt3" id="exportopt3" data-index="5" disabled="true">
+                            <option value="0" text="">请选择</option>
+                            <option value="1" text="报表名">报表名</option>
+                            <option value="2" text="类型">类型</option>
+                            <option value="3" text="周期">周期</option>
+                          </select>
+                        </div>
+                        <div class="col-sm-1 Connectordiv4">
+                          <input type="text" class="form-control exportopt" data-index="6" disabled="true" />
+                        </div>
+
+                    </div>
+                    <div class="form-group exportoptdiv" >
+                      <label class=" col-sm-1 control-label" style="padding-left:0;">导出命名预览:</label>
+                      <div class="col-sm-7"  style="margin-left:15px;">
+                        <input id="exportpreview" type="text" class="form-control" disabled="true" />
+                      </div>
+                    </div>
+
+
+                <div class="form-group">
+
+                </div>
+            </form>
+            <!-- <h6>提示:列表中每行指标前的按钮被选择可编辑该指标信息,指标的筛选条件无需选中即可进行编辑</h6> -->
+            <div class=" form-title">
+                <div class="col-sm-2">指标名</div>
+                <div class="col-sm-3">指标类型</div>
+                <div class="col-sm-5">指标筛选条件(无需选中指标名即可设置)</div>
+            </div>
+            <div class="indicator-list">
+                <form class="form-inline">
+
+                  </form>
+            </div>
+            <div class="Viewtable table-responsive"></div>
+            <div class="row">
+                <div class="col-sm-offset-4 col-sm-2">
+                    <button type="button" class="btn btn-block btn-info disabled" name="setConfig" onclick="setConfig()" >确认</button>
+                </div>
+                <div class="col-sm-2">
+                    <button type="button" class="btn btn-block" onclick="cancel()">取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- 遮罩层 -->
+<div id="cover" class="cover"></div>
+<!-- 删除模态框 -->
+<div id="deleteModal" class="hide">
+
+</div>
+<!-- Modal -->
+<div class="modal fade" id="detailsModal" tabindex="-1" role="dialog" aria-labelledby="detailsLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="detailsLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        <div class="fltersList">
+          <table class="table table-condensed">
+            <caption>筛选条件:</caption>
+            <thead>
+              <tr>
+                <th>指标名</th>
+                <th>筛选条件类型</th>
+                <th>筛选条件值/提示信息</th>
+              </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+          </table>
+        </div>
+        <div class="indicators">
+          <table  class="table table-condensed">
+              <caption>指标显示:</caption>
+              <thead>
+
+              </thead>
+          </table>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- <div id="deleteReport" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      是否要删除该记录?
+    </div>
+  </div>
+</div> -->
+</body>
+
+<script src="./dist/common.js"></script>
+<script src="./dist/report-util.gtstar.js"></script>
+<script src="./dist/report_config.js"></script>
+<script type="text/javascript">
+
+
+    function getReportList(){
+      $.reportGtstar.getReportList();
+    }
+
+    function getReportView() {
+        $.reportGtstar.getReportView();
+    }
+
+    getReportList();
+    getReportView();
+
+    function setConfig(){
+      $.reportGtstar.setConfig();
+    }
+    $("input[name='reportView']").on("change", function () {
+        var viewType = $("input[name='reportView']:checked").val();
+        console.log(viewType);
+        if (viewType == "2") {
+            $("#ChartTypes").hide();
+        } else {
+            $("#ChartTypes").show();
+        }
+    })
+    //页面取消事件
+    function cancel(){
+    location.replace(location.href);
+    }
+
+    function addreport(){
+      $("#addReport").toggleClass("hide");
+      $("#cover").attr("style","display:block");
+      // $("#reportName").focus();
+    }
+</script>
+</html>

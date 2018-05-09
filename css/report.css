@@ -1,0 +1,445 @@
+ul,
+li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+  cursor: pointer;
+}
+.selectRowName {
+  display: block;
+  width: 20%;
+  height: 34px;
+  padding: 6px 12px;
+  margin-top: 20px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -webkit-transition: border-color ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;
+  /*-moz-appearance: none;
+  appearance: none;*/
+}
+.selectRowName:focus {
+  border-color: #66afe9;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+}
+.searchBox {
+  margin-top: 20px;
+}
+.searchBox .top {
+  height: 40px;
+}
+.searchBox .ptop {
+  height: 34px;
+}
+.searchBox .inputCss {
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.searchBox .inputCss :focus {
+  border-color: #66afe9;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+}
+.searchBox .input-group .inputCss {
+  width: calc(38.5%);
+}
+.searchBox .input-group .inputCss:first-child {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.searchBox .input-group .inputCss:last-child {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.searchRow {
+  margin-top: 60px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 998;
+  height: auto;
+  border-top: none;
+  background-color: #F8F8F8;
+  border-radius: 14px;
+}
+.searchRow #configSearch > div {
+  margin-top: 15px;
+}
+.searchRow.none,
+tr.none {
+  display: none;
+}
+.header {
+  height: 60px;
+}
+.header .row {
+  position: relative;
+}
+.header .row .titleName {
+  font-weight: bold;
+  font-size: 22px;
+  padding: 20px 0;
+}
+.header .row .chartType {
+  height: 60px;
+  line-height: 30px;
+  padding: 15px 0;
+}
+.header .row .selectType {
+  height: 60px;
+  padding: 15px 0;
+  position: relative;
+}
+.header .row .selectType .caret {
+  position: absolute;
+  top: 28px;
+  right: 12px;
+  border-top-width: 5px;
+  border-right-width: 5px;
+  border-left-width: 5px;
+}
+.header .row .selectType select {
+  height: 32px;
+}
+.header .ul-view {
+  overflow: hidden;
+}
+.header .ul-view li {
+  float: left;
+  list-style: none;
+  margin-right: 7px;
+}
+.header .cuePanel {
+  height: 60px;
+  padding: 15px 0;
+  display: inline-block;
+}
+.header .cueName {
+  margin-left: 10px;
+  font-size: 16px;
+  display: inline-block;
+}
+.header .cueInfo {
+  width: 190px;
+  border: 1px solid #aaa;
+  background: #fff;
+  -webkit-box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.2);
+  padding: 4px 0 0 6px;
+  font-size: 12px;
+  text-align: left;
+  border-radius: 5px;
+  top: 10px;
+  left: 50px;
+  position: relative;
+  display: none;
+  z-index: 1100;
+}
+.header .cueInfo:before {
+  content: "";
+  border-bottom: 8px solid #fff;
+  border-top: 8px solid transparent;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  position: absolute;
+  top: -16px;
+  left: 18px;
+  z-index: 30;
+}
+.header .cueInfo:after {
+  content: "";
+  width: 0;
+  height: 0;
+  border-bottom: 10px solid #aaa;
+  border-top: 10px solid transparent;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  position: absolute;
+  top: -20px;
+  left: 16px;
+  z-index: 20;
+}
+.header .cueInfo .first {
+  color: #009cff;
+}
+.header .cueInfo .nbsp {
+  padding-left: 24px;
+}
+.header .cueInfo p {
+  line-height: 10px;
+}
+.header .ipText {
+  position: relative;
+  width: 190px;
+  height: 32px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding-left: 10px;
+}
+.header .cueName,
+.header .ipTextBtn {
+  font-family: "Microsoft YaHei", Helvetica, sans-serif;
+}
+.header .ipBtns {
+  height: 60px;
+  padding: 15px 0;
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.header .ipBtns .filter {
+  height: 30px;
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 13px;
+  margin-left: 0;
+}
+.header .ipTextBtn {
+  height: 30px;
+  text-align: center;
+  border: 1px solid #056ee1;
+  border-radius: 3px;
+  margin-right: 5px;
+  color: #fff;
+  font-size: 15px;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
+  background-color: #009cff;
+  display: inline-block;
+}
+.header .ipTextBtn:active {
+  background: #009cff;
+  -webkit-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+.header .ipTextBtn:hover {
+  background: #00acff;
+}
+.sectionWrap {
+  display: block;
+  margin-top: 70px;
+}
+.sectionWrap #chartDiv {
+  margin-top: 30px;
+}
+.sectionWrap .isChartHidden {
+  display: block;
+  width: 98%;
+  overflow: hidden;
+  padding: 15px;
+}
+.sectionWrap .isChartHidden span {
+  font-size: 20px;
+  float: right;
+  cursor: pointer;
+}
+.sectionWrap .isChartHidden span#showChart {
+  display: none;
+}
+.sectionWrap.top {
+  margin-top: 200px;
+}
+#modal2 .btns {
+  margin-top: 10px;
+}
+#modal2 div.content:after {
+  display: block;
+  content: "";
+  clear: both;
+}
+#modal2 div.content > div {
+  float: left;
+  width: 50%;
+}
+#modal2 div.content ul {
+  height: 280px;
+  border: 1px solid #aaa;
+  padding: 5px;
+  margin-left: 5px;
+  overflow: auto;
+}
+#modal2 div.content ul li span {
+  cursor: pointer;
+}
+#modal2 input[type=checkbox] {
+  vertical-align: middle;
+  margin: 0 4px 0 0;
+}
+.box-body {
+  overflow: hidden;
+}
+#example th {
+  padding: 0 6px;
+  cursor: pointer;
+}
+#exampleDiv {
+  position: relative;
+  /*固定表头在这个DIV内*/
+}
+#exampleDiv .fixedHeadBox {
+  width: calc(98.4%);
+  overflow: hidden;
+  border-collapse: collapse;
+  /*边线与旁边的合并*/
+  position: absolute;
+  top: 0;
+}
+.fixedHead {
+  overflow: hidden;
+}
+.fixedHead #cloneHead {
+  overflow: hidden;
+  display: block;
+}
+.fixedHead tr th {
+  height: 40px;
+  padding: 0 6px;
+  border: 1px solid #ccc;
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+  color: #1b6d85;
+  background-color: #E5E5F5;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.fixedHead tr th + th {
+  border-right: none;
+}
+#exampleTable {
+  padding: 0;
+  margin: 60px 0 40px 0;
+  width: 100%;
+  clear: right;
+  border: 1px solid #ccc;
+  /*内容在这个DIV内*/
+  /*单元格样式*/
+}
+#exampleTable tr td[rowspan] + td,
+#exampleTable tr td:first-child {
+  font-weight: bold;
+  font-size: 16px;
+}
+#exampleTable div.content_left {
+  max-height: 400px;
+  width: 100%;
+  overflow-x: auto;
+}
+#exampleTable .main_table {
+  padding: 0;
+  width: 100%;
+  border-collapse: collapse;
+  /*边线与旁边的合并*/
+  text-align: center;
+  overflow: hidden;
+}
+#exampleTable #example_autohead_thead tr th {
+  border: 1px solid #ccc;
+  text-align: center;
+  vertical-align: middle;
+  color: #1b6d85;
+  white-space: nowrap;
+  background-color: #E5E5F5;
+  height: 40px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+#exampleTable #example_autohead_tbody {
+  overflow-y: auto;
+  border-bottom: 2px solid #ccc;
+}
+#exampleTable #example_autohead_tbody tr td {
+  border: 1px solid #ccc;
+  margin: 0;
+  white-space: nowrap;
+  text-align: center;
+  vertical-align: middle;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+#exampleTable #example_autohead_tbody tr.select {
+  background-color: #c5f5f5;
+}
+#exampleTable #example_autohead_tbody tr.select:hover {
+  background-color: #f1f5f5;
+}
+#exampleTable #example_autohead_tbody tr.select td[rowspan] {
+  background-color: #f9f9f9;
+}
+#exampleTable #example_autohead_tbody tr:nth-of-type(even).selected {
+  background-color: transparent;
+}
+#loadingWrap {
+  background: #ccc;
+  width: 260px;
+  height: 80px;
+  padding: 15px;
+  position: fixed;
+  text-align: center;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  top: 200px;
+  left: calc(45%);
+  opacity: .8;
+  z-index: 999;
+  display: none;
+}
+#loadingWrap img {
+  vertical-align: top;
+}
+#loadingWrap p {
+  text-align: center;
+  line-height: 22px;
+  color: black;
+}
+.selectsDiv {
+  display: inline-block;
+  width: 50%;
+  /*控制隔行换色*/
+}
+.selectsDiv .btn-group {
+  width: 100%;
+}
+.selectsDiv .multiselect {
+  width: 100%;
+  text-align: right;
+}
+.selectsDiv ul {
+  width: 100%;
+}
+.selectsDiv .multiselect-selected-text {
+  position: absolute;
+  left: 0;
+  right: 25px;
+  text-align: left;
+  padding-left: 20px;
+}
+.selectsDiv .multiselect-container li.even {
+  background-color: #eeeeee;
+}

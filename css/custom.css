@@ -1,0 +1,192 @@
+body{
+  background: #efefef;
+}
+
+input[type=checkbox]{
+  vertical-align: middle;
+  margin-top:-2px;
+}
+.input-group .form-control {
+  z-index: 1;
+}
+
+.own-container {
+  background-color: #fff;
+  padding: 20px;
+}
+.own-container .container-left{
+  border: 1px solid #efefef;
+  height: 100%;
+  padding-top: 10px;
+  background-color: #fff;
+}
+
+.ztree {
+  /* border: 1px solid #d2d6de; */
+  min-height: 540px;
+  overflow-x: scroll;
+  height: 100%;
+}
+
+
+.own-container .select-view{
+  background-color: #e3e3e3;
+  height: 40px;
+}
+.own-container .ul-view{
+    position: relative;
+    padding: 12px;
+    list-style: none;
+}
+.own-container .ul-view li{
+    float: left;
+    list-style: none;
+}
+.own-container .ul-view li a {
+    display: block;
+    width: 22px;
+    height: 17px;
+    background: url(../images/icon-sprite.png) no-repeat;
+    margin-right: 12px;
+}
+.own-container .ul-view li a.list{background-position:0 -58px; }
+.own-container .ul-view li a.line{background-position:0 -77px; }
+.own-container .ul-view li a.cloumn{background-position:0 -96px; }
+.own-container .ul-view li a.pie{background-position:0 -115px; }
+.own-container .ul-view li a.bar{background-position:0 -134px; }
+
+
+.table tbody tr.selected{
+  background-color: #B0BED9;
+}
+
+
+.select-view{
+    position: relative;
+}
+
+.selectType {
+    height: 28px;
+    display: flex;
+    justify-content: space-around;
+    position: absolute;
+    top:7px;
+    right: 10px;
+    z-index: 2;
+}
+
+
+.cueName,.ipText{
+    vertical-align: middle;
+}
+.cueName{
+    display: block;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+    font-size: 16px;
+}
+.cueInfo:before {
+    content: "";
+    border-bottom: 8px solid #fff;
+    border-top: 8px solid transparent;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    position: absolute;
+    top: -16px;
+    left: 18px;
+    z-index: 12;
+}
+
+.cueInfo:after {
+    content: "";
+    width: 0;
+    height: 0;
+    border-bottom: 10px solid #aaa;
+    border-top: 10px solid transparent;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    position: absolute;
+    top: -20px;
+    left: 16px;
+    z-index: 10;
+}
+
+.ipText {
+    position: relative;
+    width: 180px;
+    font-size: 14px;
+    padding-left: 3px;
+    margin-right: 5px;
+}
+
+.cueInfo {
+    border: 1px solid #aaa;
+    background: #fff;
+    box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.2);
+    padding: 4px 0 0 6px;
+    font-size: 12px;
+    z-index: 999;
+    text-align: left;
+    border-radius: 5px;
+    top: 12px;
+    left: 0;
+    position: relative;
+    display: none;
+    font-family: "宋体";
+}
+
+.cueInfo .first {
+    color: #009cff;
+}
+
+.cueInfo .nbsp {
+    padding-left: 24px;
+}
+.cueInfo p{
+    line-height:10px;
+}
+.cueName, .ipTextBtn {
+    font-family: "Microsoft YaHei", Helvetica, sans-serif;
+}
+
+.ipTextBtn {
+    height: 27px;
+    text-align: center;
+    border: 1px solid #056ee1;
+    border-radius: 3px;
+    color: #fff;
+    font-size: 15px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
+    background-color: #009cff;
+}
+
+.ipTextBtn:active {
+    background: #009cff;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2)
+}
+
+.ipTextBtn:hover {
+    background: #00acff;
+}
+
+#selectTime {
+    width:132px;
+    padding: 0 1%;
+    margin: 0;
+    font-size: 14px;
+    margin-right: 5px;
+}
+
+#selectTime option {
+    text-align: center;
+}
+
+#selectTime, input {
+    display: inline-block;
+    /*height:28px;*/
+}
+
+/* #selectTime:hover {
+    cursor: pointer;
+} */

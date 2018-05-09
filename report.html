@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>报表页</title>
+    <link href="./css/bootstrap.css" rel="stylesheet">
+    <link href="./css/adminlte-box.css" rel="stylesheet">
+    <link href="./css/report.css" rel="stylesheet">
+    <link href="./css/bootstrap-multiselect.css" rel="stylesheet">
+
+    <script src="./fonts/iconfont.js"></script>
+    <script src="./lib/jquery.js"></script>
+    <script src="./lib/bootstrap.js"></script>
+    <script src="./lib/jquery.autoHeader.all.js"></script>
+
+</head>
+<body>
+<header class="col-xs-offset-1 col-sm-11">
+    <div class="nav navbar-default  navbar-fixed-top">
+        <div class="container header">
+            <div class="row" id="selectWrap">
+                <div class="navbar-header col-sm-3 ">
+                    <div class="navbar-brand titleName" id="reportName"></div>
+                </div>
+                <div class="col-sm-2  chartType">
+                    <ul class="ul-view left" id="chartsLogo">
+                        <li title="面积图">
+                            <svg class="icon" aria-hidden="true" onclick="showChart('area')">
+                                <use xlink:href="#icon-mianjitu-hover"></use>
+                            </svg>
+                        </li>
+                        <li title="折线图">
+                            <svg class="icon" aria-hidden="true" onclick="showChart('line')">
+                                <use xlink:href="#icon-tubiaozhexiantu"></use>
+                            </svg>
+                        </li>
+                        <li title="柱形图">
+                            <svg class="icon" aria-hidden="true" onclick="showChart('bar')">
+                                <use xlink:href="#icon-tongjitubiao"></use>
+                            </svg>
+                        </li>
+                        <li title="饼形图">
+                            <svg class="icon" aria-hidden="true" onclick="showChart('pie')">
+                                <use xlink:href="#icon-bingtu"></use>
+                            </svg>
+                        </li>
+                        <li title="环形图">
+                            <svg class="icon" aria-hidden="true" onclick="showChart('annulus')">
+                                <use xlink:href="#icon-icon-test"></use>
+                            </svg>
+                        </li>
+                    </ul>
+                </div>
+                <div class="navbar-collapse col-sm-2 selectType" id="menu">
+                    <select class="form-control" v-model="reportType" @change="changeType"
+                            name="reportType" id="selectTime">
+                        <option disabled value="type">请选择报表类型</option>
+                        <option value="1">年报</option>
+                        <option value="2">季报</option>
+                        <option value="3">月报</option>
+                        <option value="4">周报</option>
+                        <option value="5">日报</option>
+                        <option value="6">时报</option>
+                    </select>
+                    <!--<b class="caret"></b>-->
+                </div>
+
+                <div class="col-sm-3  cuePanel ">
+                    <div class="cueName">时间:</div>
+                    <input class="ipText" name="reportTime" type="text" placeholder="请输入正确时间" maxlength="50"/>
+                    <cue-info v-bind:retype="reportType"></cue-info>
+                </div>
+
+                <div class="ipBtns" id="fullBtn">
+                    <div class="filter" title="过滤">
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-shaixuan1"></use>
+                        </svg>
+                    </div>
+                    <button type="button" class="ipTextBtn" id="reportBtn">生成报表</button>
+                    <button type="button" class="ipTextBtn" data-toggle="modal" data-target="#modal2"
+                            data-backdrop="static" id="createHeaderDivBtn">筛选报表
+                    </button>
+                    <button type="button" class="ipTextBtn" id="exportButton">导出报表</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<div class="container searchRow none">
+    <div id="reportFilter">
+        <search-form class="searchBox" v-bind:filters="searchInput" v-bind:report="report"></search-form>
+    </div>
+</div>
+<section class="container sectionWrap">
+    <div class="isChartHidden">
+        <span class="glyphicon glyphicon-minus" id="hideChart">图形隐藏</span>
+        <span class="glyphicon glyphicon-plus" id="showChart">图形展开</span>
+    </div>
+    <div class="row" id="chartDiv">
+        <div id="container1" style="width:1170px;min-height:500px;display:none;"></div>
+        <div id="container2" style="width:1170px;min-height:500px;display:none;"></div>
+        <div id="container3" style="width:1170px;min-height:500px;display:none;"></div>
+        <div id="container4" style="width:1170px;min-height:500px;display:none;"></div>
+        <div id="container5" style="width:1170px;min-height:500px;display:none;"></div>
+    </div>
+
+    <div  id="exampleDiv">
+        <div id="exampleTable" class="box-body table-responsive no-padding">
+            <div class="fixedHeadBox">
+                <div class="fixedHead" id="theadDiv">
+
+                </div>
+            </div>
+            <div class="content" id="tbodyDiv">
+                <div class="content_left">
+                    <table id="example"
+                           class="main_table table table-hover table-striped table-bordered table-responsive">
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div id="loadingWrap">
+    <img src="images/loading.gif" alt="">
+    <p>正在查询，请稍等。。。。</p>
+</div>
+
+<div id='modal2' class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" style="width: 600px;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title text-center" id="demoModalLabel">筛选表格数据</h4>
+            </div>
+            <div class="modal-body" style="height: 320px;">
+                <div class='content'>
+                    <div class='lt '>
+                        <!-- <h3>隐藏或显示列</h3> -->
+                        <ul class='showul autoScroll'>
+                        </ul>
+                    </div>
+                    <div class='rt '>
+                        <!-- <h3>过滤时间</h3> -->
+                        <ul class='showul autoScroll'>
+                        </ul>
+                    </div>
+                </div>
+            </div><!-- /.modal-body -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal" id="filterBtn">确定</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal" id="filterCancel">关闭</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+
+</div>
+
+
+</body>
+<script src="./lib/bootstrap-multiselect.js"></script>
+<script src="./lib/highcharts.js"></script>
+<script src="./lib/table2excel.js"></script>
+<script src="./lib/vue.js"></script>
+<script src="./dist/common.js"></script>
+<script src="./dist/report-util.gtstar.js"></script>
+<script src="./dist/search.js"></script>
+<script src="./dist/report_gtstar.js"></script>
+<script src="./dist/report_main.js"></script>
+</html>

@@ -1,0 +1,15 @@
+{
+  "name": "report",
+  "version": "1.0.0",
+  "description": "报表模块",
+  "main": "index.js",
+  "scripts": {
+    "build": "babel js -d dist"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1"
+  }
+}

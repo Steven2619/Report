@@ -1,0 +1,323 @@
+*{
+  outline: none;
+}
+button{
+  outline:0;
+}
+/*展示表格格式*/
+
+.table-bordered > thead > tr > th,
+.table-bordered > tbody > tr > th,
+.table-bordered > thead > tr > td,
+.table-bordered > tbody > tr > td {
+    border: 1px solid #ccc;
+}
+
+/*自定义样式 */
+.form-control {
+    font-size: 12px;
+    /*height: 30px;*/
+}
+.help-block{
+  margin-top: 0;
+  margin-bottom: 0;
+}
+#modal2 .fatherspan {
+    cursor: pointer;
+}
+
+input[type=checkbox] {
+    vertical-align: middle;
+    margin: 0 4px 0 0;
+}
+
+#reportViewmodal {
+    background: #fff;
+    width: 100%;
+    height: auto;
+    /*padding: 10px;*/
+
+}
+
+#reportConfigform {
+    font-size: 12px;
+    padding: 0 15px;
+}
+#reportConfigform .form-group{
+  margin-bottom: 5px;
+  margin-left: 0;
+  margin-right: 0;
+}
+#reportViewmodal h4{
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 10px;
+
+}
+
+#reportViewmodal form label {
+    /*font-size: 12px;*/
+    font-weight: normal;
+    margin-left: 0;
+
+}
+
+#reportViewmodal ul > li {
+    float: left;
+    min-width: 80px;
+    margin-right: 5px;
+}
+
+#reportViewmodal>div>div>button {
+    margin-top: 10px;
+}
+
+/*表单错误提示信息*/
+#reportViewmodal span.danger {
+    color: red;
+}
+
+.radio-inline {
+    margin-right: 5px;
+}
+
+#reportViewDiv {
+    overflow-x: auto;
+    overflow-y: auto;
+}
+.row{
+  width: 100%;
+}
+.form-group{
+  width: 100%;
+}
+/*遮罩层*/
+.cover {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    filter: alpha(opacity=60);
+    background-color: #777;
+    z-index: 900;
+    display: none;
+    opacity: 0.9;
+    -moz-opacity: 0.5;
+}
+
+/*指标列表的显示*/
+.indicator-list {
+    padding: 0px 20px 20px 20px;
+    background-color: #EFEFEF;
+    max-height: 260px;
+    overflow: auto;
+}
+
+.indicator-list .row {
+    border-bottom: 1px solid #aaa;
+
+}
+.indicator-list {
+  overflow: auto;
+}
+.indicator-list .form-inline .row{
+    white-space: nowrap;
+}
+.form-title {
+    background-color: #E0E0E0;
+    height: 30px;
+    line-height: 10px;
+    margin: 0;
+    padding-top: 15px;
+    padding-bottom: 21px;
+    border-bottom: 1px solid #aaa;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.Viewtable {
+    max-height: 250px;
+    overflow: auto;
+    font-size: 12px;
+}
+
+#reportViewmodal .Viewtable h4 {
+    margin-top: 20px;
+}
+
+.Viewtable thead tr {
+    background-color: #EFEFEF;
+}
+
+.Viewtable thead th {
+    white-space: nowrap;
+    text-align: center;
+}
+
+.hide {
+    display: none;
+}
+
+
+#addReport{
+  z-index: 999;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #FFFFFF;
+  border: 1px solid #ccc;
+  padding: 0px 0px 10px 0px;
+  margin: 0;
+}
+#addReport button[name=setConfig]{
+  background-color: #475B5F;
+  /*background-image: url("../images/menubar_fill_pitchon.gif");*/
+  border: 0;
+  /*height: 100%;*/
+}
+
+/*********************表列表显示页面的Css的开始**********/
+#reportConfigList {
+  margin: 0;
+  padding: 0;
+  /*padding-left: 210px;*/
+  width:100%;
+  position: relative;
+  overflow: auto;
+}
+#reportConfigList .title,#reportViewmodal .title {
+    text-align: center;
+    margin-bottom: 15px;
+    height: 28px;
+    width: 100%;
+    color: #fff;
+    font-weight: bold;
+    background-image: url("../images/menubar_fill_pitchon.gif");
+}
+
+#reportConfigList .menuList {
+    margin-bottom: 10px;
+}
+
+#reportConfigList input[type='search']{
+  border-radius: 5px;
+}
+
+#configListTable {
+    /*white-space: nowrap;*/
+    /*word-wrap:break-word;*/
+    margin-top: 43px;
+    margin-right:10px;
+    border: 0;
+    overflow: auto;
+    /*width: 100%;*/
+}
+
+#configListTable th {
+    background-color: #E0E0E0;
+    text-align: center;
+}
+
+
+#addreportbtn{
+  position: absolute;
+  z-index: 3;
+  padding: 0;
+  width: 70px;
+  height:28px;
+  line-height: 28px;
+  top:44px;
+  right: 300px;
+  border-radius: 6px;
+  background-image: url("../images/menubar_fill_pitchon.gif");
+  color: #fff;
+}
+#reportViewmodal ul.multiselect-container li{
+  width: 100%;
+}
+#configListTable tbody .btn{
+  padding: 0 4px 0 4px;
+  margin: 0;
+  /*margin-left:15px;*/
+  font-size: 12px;
+
+}
+/*删除模态框样式*/
+#deleteModal.cue{
+  position: absolute;
+  z-index: 999;
+  width: 300px;
+  height: 150px;
+  top:10%;
+  right: 40%;
+  background-color: #fff;
+  border-radius: 5px;
+  text-align: center;
+}
+#deleteModal .title{
+  padding-bottom: 5px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #ddd;
+}
+#deleteModal .btngroup{
+  margin-top: 20px;
+}
+#deleteModal .btngroup button{
+  margin-left: 20px;
+}
+/*详情模态框样式*/
+#detailsModal caption{
+  font-weight: bold;
+  color: #000;
+  font-size: 16px;
+}
+#detailsModal .modal-header{
+  background-color: #E0E0E0;
+  border-radius: 6px 6px 0 0;
+}
+#detailsModal .indicators,#detailsModal .fltersList{
+  overflow: auto;
+  white-space: nowrap;
+}
+#detailsModal tbody,#detailsModal thead>tr>th{
+  border:0px;
+}
+#detailsModal thead > tr > th{
+  border: 1px solid #ddd;
+}
+#detailsModal tbody  td{
+  border:1px solid #ddd;
+}
+
+.line-border{
+    display: inline-block;
+    height: 42px;
+    border-right: 1px solid #AAAAAA;
+    margin: 0;
+    vertical-align: middle;
+}
+div.Connectordiv{
+  width: 40px;
+  padding:0;
+  /*margin-right: 5px;*/
+}
+div.Connectordiv>input{
+  width: 40px;
+  padding: 2px;
+}
+.exportoptdiv select{
+  min-width: 70px;
+  padding-left: 4px;
+}
+.exportoptdiv>div{
+  padding-right: 0;
+  padding-left:3px;
+}
+.labelFilter .multiselect-native-select .multiselect-container{
+  overflow: auto;
+  max-height: 200px;
+  width:270px;
+}
